@@ -11,9 +11,35 @@
             text-align: center;
             margin-top: 50px;
         }
+        /* Hide elements that you don’t need */
+        p {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <p>Loading...</p>
+
+    <script>
+        // Request fullscreen when the user interacts with the page
+        function requestFullscreen() {
+            const element = document.documentElement; // The whole document
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { // Firefox
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { // IE/Edge
+                element.msRequestFullscreen();
+            }
+        }
+
+        // Call the function to request fullscreen
+        window.addEventListener("click", requestFullscreen); // Trigger fullscreen on click
+        window.addEventListener("keydown", requestFullscreen); // Trigger fullscreen on key press
+
+        // Optionally, you can adjust the timeout or add more events to trigger fullscreen
+    </script>
 </body>
 </html>
