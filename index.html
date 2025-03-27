@@ -16,10 +16,21 @@
         p {
             display: block;
         }
+        #fullscreenButton {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4b87f7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <p>Loading...</p>
+    <button id="fullscreenButton" onclick="requestFullscreen()">Enter Fullscreen</button>
     <script>
         // Function to request fullscreen mode
         function requestFullscreen() {
@@ -27,19 +38,25 @@
             if (element.requestFullscreen) {
                 element.requestFullscreen().catch(err => {
                     console.error('Error attempting to enable fullscreen mode:', err);
+                    alert('Fullscreen mode is not supported or has been denied.');
                 });
             } else if (element.mozRequestFullScreen) {
                 element.mozRequestFullScreen().catch(err => {
                     console.error('Error attempting to enable fullscreen mode:', err);
+                    alert('Fullscreen mode is not supported or has been denied.');
                 });
             } else if (element.webkitRequestFullscreen) {
                 element.webkitRequestFullscreen().catch(err => {
                     console.error('Error attempting to enable fullscreen mode:', err);
+                    alert('Fullscreen mode is not supported or has been denied.');
                 });
             } else if (element.msRequestFullscreen) {
                 element.msRequestFullscreen().catch(err => {
                     console.error('Error attempting to enable fullscreen mode:', err);
+                    alert('Fullscreen mode is not supported or has been denied.');
                 });
+            } else {
+                alert('Fullscreen mode is not supported by your browser.');
             }
         }
 
