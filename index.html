@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Game</title>
-    <meta http-equiv="refresh" content="3;url=EaglercraftX_1.8_u50_Offline_Signed.html">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
     <style>
@@ -16,11 +15,18 @@
         p {
             display: block;
         }
+        #gameContainer {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
     <p>Loading...</p>
     <script>
+        // Function to request fullscreen mode
         function requestFullscreen() {
             const element = document.documentElement;
             if (element.requestFullscreen) {
@@ -44,15 +50,38 @@
             }
         }
 
+        // Function to load Eaglercraft game content on the page
+        function loadEaglercraft() {
+            const gameContainer = document.getElementById('gameContainer');
+            gameContainer.style.display = 'block';
+            // Place the Eaglercraft game HTML content directly here
+            gameContainer.innerHTML = `
+                <h1>Welcome to Eaglercraft!</h1>
+                <p>Game is loading...</p>
+                <div>
+                    <!-- Eaglercraft's content goes here, e.g., game logic or canvas -->
+                    <p>Game content embedded directly within this page.</p>
+                </div>
+            `;
+        }
+
         window.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 const userChoice = confirm("Go Fullscreen? (Recommended)");
                 if (userChoice) {
-                    document.body.addEventListener("click", requestFullscreen, { once: true });
-                    alert("Click anywhere to enter fullscreen.");
+                    document.body.addEventListener("click", function() {
+                        requestFullscreen(); // Trigger fullscreen on user click
+                        loadEaglercraft(); // Load the game content
+                    }, { once: true });
+                    alert("Click anywhere to enter fullscreen and start the game.");
                 }
             }, 1000);
         });
     </script>
+
+    <div id="gameContainer">
+        <!-- Eaglercraft game content goes here directly, replacing this -->
+        <!-- Example: embedded game HTML content can go here, like a game canvas or script -->
+    </div>
 </body>
 </html>
