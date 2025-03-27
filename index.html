@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Game</title>
     <meta http-equiv="refresh" content="3;url=EaglercraftX_1.8_u50_Offline_Signed.html">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +14,7 @@
             margin-top: 50px;
         }
         p {
-            display: block; /* Ensure the paragraph is visible */
+            display: block;
         }
     </style>
 </head>
@@ -21,21 +23,29 @@
     <script>
         // Function to request fullscreen mode
         function requestFullscreen() {
-            const element = document.documentElement; // The whole document
+            const element = document.documentElement;
             if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) { // Firefox
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
-                element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) { // IE/Edge
-                element.msRequestFullscreen();
+                element.requestFullscreen().catch(err => {
+                    console.error('Error attempting to enable fullscreen mode:', err);
+                });
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen().catch(err => {
+                    console.error('Error attempting to enable fullscreen mode:', err);
+                });
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen().catch(err => {
+                    console.error('Error attempting to enable fullscreen mode:', err);
+                });
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen().catch(err => {
+                    console.error('Error attempting to enable fullscreen mode:', err);
+                });
             }
         }
 
         // Attempt to enter fullscreen as soon as the page is loaded
         window.addEventListener('DOMContentLoaded', function () {
-            setTimeout(requestFullscreen, 100);  // Try fullscreen shortly after page load
+            setTimeout(requestFullscreen, 100);
         });
     </script>
 </body>
