@@ -48,9 +48,10 @@
             setTimeout(() => {
                 const userChoice = confirm("Go Fullscreen? (Recommended)");
                 if (userChoice) {
-                    requestFullscreen();
+                    document.body.addEventListener("click", requestFullscreen, { once: true });
+                    alert("Click anywhere to enter fullscreen.");
                 }
-            }, 1000); // Give the user time to see the page before prompting
+            }, 1000);
         });
     </script>
 </body>
