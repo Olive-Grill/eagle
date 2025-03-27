@@ -21,7 +21,6 @@
 <body>
     <p>Loading...</p>
     <script>
-        // Function to request fullscreen mode
         function requestFullscreen() {
             const element = document.documentElement;
             if (element.requestFullscreen) {
@@ -45,9 +44,13 @@
             }
         }
 
-        // Attempt to enter fullscreen as soon as the page is loaded
         window.addEventListener('DOMContentLoaded', function () {
-            setTimeout(requestFullscreen, 100);
+            setTimeout(() => {
+                const userChoice = confirm("Go Fullscreen? (Recommended)");
+                if (userChoice) {
+                    requestFullscreen();
+                }
+            }, 1000); // Give the user time to see the page before prompting
         });
     </script>
 </body>
