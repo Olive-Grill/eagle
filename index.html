@@ -22,16 +22,18 @@
             font-size: 20px;
             padding: 10px 20px;
             cursor: pointer;
+            margin: 10px;
         }
     </style>
 </head>
 <body>
     <div class="info-box">
-        <h2>Welcome to My Game</h2>
-        <p>Experience an exciting adventure in this game. Press "Play" to start and enjoy full-screen gameplay!</p>
+        <h2>Welcome to Eaglercraft</h2>
+        <p>All of the game code rightfully belongs to lax1dude.</p>
     </div>
-    <p>Click "Play" to start the game.</p>
+    <p>Click "Play" to start.</p>
     <button onclick="startGame()">Play</button>
+    <button onclick="goToTutorial()">Tutorial</button>
     
     <script>
         function requestFullscreen() {
@@ -52,6 +54,10 @@
             setTimeout(() => {
                 window.location.href = "EaglercraftX_1.8_u50_Offline_Signed.html";
             }, 500);
+        }
+
+        function goToTutorial() {
+            window.open("tutorial.html", "_blank");
         }
     </script>
 </body>
