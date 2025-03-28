@@ -3,62 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game</title>
+    <title>Eaglercraft Tutorial</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+            margin: 40px;
+            line-height: 1.6;
         }
-        .info-box {
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
             border: 1px solid #ccc;
-            padding: 15px;
-            margin: 20px auto;
-            width: 80%;
-            max-width: 600px;
             background-color: #f9f9f9;
         }
-        button {
-            font-size: 20px;
-            padding: 10px 20px;
-            cursor: pointer;
-            margin: 10px;
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            padding-left: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="info-box">
-        <h2>Welcome to Eaglercraft</h2>
-        <p>All of the game code rightfully belongs to lax1dude.</p>
+    <div class="container">
+        <h1>Eaglercraft 1.8.8 Tutorial</h1>
+        <p>Eaglercraft 1.8.8 is a copy of Minecraft 1.8.8 ported to HTML.</p>
+        <p>This tutorial will guide you on how to use Eaglercraft on <strong>eagle-plum.vercel.app</strong>.</p>
+        
+        <h2>Section 1: Singleplayer</h2>
+        <p>Singleplayer mode works the same as Minecraft singleplayer. If you've never played Minecraft before, search for a "Minecraft 1.8" tutorial.</p>
+        
+        <h2>Section 2: Multiplayer</h2>
+        <p>In Eaglercraft, you can play multiplayer locally or through an online server.</p>
+        
+        <h3>Local Play</h3>
+        <p>To play locally, you must go into the singleplayer tab.</p>
+        <h4>Setting Up a Local World</h4>
+        <ul>
+            <li>Create a world and press "Esc" to open the menu.</li>
+            <li>Click "Invite" and then "Continue" to adjust world settings.</li>
+            <li>Click "Start Shared World" and note the Relay URL and Join Code.</li>
+        </ul>
+        
+        <h4>Joining a Local World</h4>
+        <ul>
+            <li>Go to "Multiplayer" from the home page.</li>
+            <li>Click "Network Settings" and set the correct Relay URL.</li>
+            <li>Click "Done," then "Cancel," then "Singleplayer."</li>
+            <li>Click "Join Shared World" and enter the code.</li>
+        </ul>
+        
+        <h3>Online Servers</h3>
+        <h4>Background (Read Before Playing)</h4>
+        <ul>
+            <li>Servers use a username and password system.</li>
+            <li>Remember the username and password you use when registering.</li>
+            <li>Use a unique username if your first choice is taken.</li>
+        </ul>
+        
+        <h4>Adding Servers</h4>
+        <ul>
+            <li>Go to "Multiplayer" and click "Add Server." </li>
+            <li>Enter a server address (must start with "wss://").</li>
+            <li>Examples:
+                <ul>
+                    <li>ArchMC - wss://mc.arch.lol</li>
+                    <li>Rice Network - wss://mc.ricenetwork.xyz</li>
+                    <li>Vanilla MC - wss://vanillamc.me</li>
+                    <li>Clever Teaching - wss://clever-teaching.com</li>
+                    <li>Time Legacy - wss://mc.time-legacy.net</li>
+                </ul>
+            </li>
+            <li>Press "Done," select the server, and click "Join Server." </li>
+        </ul>
+        
+        <h4>Logging into Servers</h4>
+        <ul>
+            <li>Use <code>/register [password] [password again]</code> to register.</li>
+            <li>If your username is taken, change it in "Edit Profile." </li>
+            <li>On future logins, use <code>/login [password]</code> with the same username.</li>
+        </ul>
+        
+        <h2>Section 3: Key Points</h2>
+        <ul>
+            <li>Worlds may be deleted if cookies are cleared.</li>
+            <li>Write down your username and password.</li>
+            <li>Use the same username/password combination for all servers.</li>
+            <li>For questions or feedback, visit: <a href="https://forms.gle/W3kkuny1Zi2qqFCL6" target="_blank">Google Form</a>.</li>
+        </ul>
     </div>
-    <p>Click "Play" to start.</p>
-    <button onclick="startGame()">Play</button>
-    <button onclick="goToTutorial()">Tutorial</button>
-    
-    <script>
-        function requestFullscreen() {
-            const element = document.documentElement;
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) {
-                element.msRequestFullscreen();
-            }
-        }
-
-        function startGame() {
-            requestFullscreen();
-            setTimeout(() => {
-                window.location.href = "EaglercraftX_1.8_u50_Offline_Signed.html";
-            }, 500);
-        }
-
-        function goToTutorial() {
-            window.open("tutorial.html", "_blank");
-        }
-    </script>
 </body>
 </html>
