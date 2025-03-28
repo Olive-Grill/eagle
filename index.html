@@ -4,39 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Game</title>
-    <meta http-equiv="refresh" content="3;url=EaglercraftX_1.8_u50_Offline_Signed.html">
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
         }
-        p {
-            display: block; /* Ensure the paragraph is visible */
+        .info-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <p>Loading...</p>
+    <div class="info-box">
+        <h2>Welcome to My Game</h2>
+        <p>Experience an exciting adventure in this game. Press "Play" to start and enjoy full-screen gameplay!</p>
+    </div>
+    <p>Click "Play" to start the game.</p>
+    <button onclick="startGame()">Play</button>
+    
     <script>
-        // Function to request fullscreen mode
         function requestFullscreen() {
-            const element = document.documentElement; // The whole document
+            const element = document.documentElement;
             if (element.requestFullscreen) {
                 element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) { // Firefox
+            } else if (element.mozRequestFullScreen) {
                 element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            } else if (element.webkitRequestFullscreen) {
                 element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) { // IE/Edge
+            } else if (element.msRequestFullscreen) {
                 element.msRequestFullscreen();
             }
         }
 
-        // Attempt to enter fullscreen as soon as the page is loaded
-        window.addEventListener('DOMContentLoaded', function () {
-            setTimeout(requestFullscreen, 100);  // Try fullscreen shortly after page load
-        });
+        function startGame() {
+            requestFullscreen();
+            setTimeout(() => {
+                window.location.href = "EaglercraftX_1.8_u50_Offline_Signed.html";
+            }, 500);
+        }
     </script>
 </body>
 </html>
