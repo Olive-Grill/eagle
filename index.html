@@ -31,8 +31,9 @@
         <h2>Welcome to Eaglercraft</h2>
         <p>All of the game code rightfully belongs to lax1dude.</p>
     </div>
-    <p>Click "Play" to start.</p>
-    <button onclick="startGame()">Play</button>
+    <p>Click a version to start.</p>
+    <button onclick="startGame('EaglercraftX_1.8_u50_Offline_Signed.html')">Play 1.8</button>
+    <button onclick="startGame('https://jolly-pasca-44e087.netlify.app/')">Play 1.12</button>
     <button onclick="goToTutorial()">Tutorial</button>
     
     <script>
@@ -49,10 +50,10 @@
             }
         }
 
-        function startGame() {
+        function startGame(url) {
             requestFullscreen();
             setTimeout(() => {
-                window.location.href = "EaglercraftX_1.8_u50_Offline_Signed.html";
+                window.location.href = url;
             }, 500);
         }
 
